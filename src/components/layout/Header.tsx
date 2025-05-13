@@ -3,7 +3,7 @@ import { PawPrint, Search, ShoppingCart, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
-import { categories } from '@/lib/mock-data'; // For mobile nav categories
+import { products } from '@/lib/mock-data'; // For product detail link
 
 const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
   <Link href={href} className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
@@ -12,6 +12,8 @@ const NavLink = ({ href, children }: { href: string; children: React.ReactNode }
 );
 
 export default function Header() {
+  const firstProductSlug = products.length > 0 ? products[0].slug : 'all'; // Fallback if no products
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-sm">
       <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
@@ -22,12 +24,8 @@ export default function Header() {
 
         <nav className="hidden md:flex items-center gap-6 text-sm">
           <NavLink href="/">Home</NavLink>
-          {categories.slice(0, 3).map(category => ( // Show first 3 categories in header
-             <NavLink key={category.id} href={`/category/${category.slug}`}>
-               {category.name.replace(' Supplies','')}
-             </NavLink>
-           ))}
-          <NavLink href="/category/all">All Categories</NavLink>
+          <NavLink href="/category/all">Category</NavLink>
+          <NavLink href={`/products/${firstProductSlug}`}>Product Detail</NavLink>
         </nav>
 
         <div className="flex flex-1 items-center justify-end gap-4">
@@ -68,16 +66,14 @@ export default function Header() {
                   <SheetClose asChild>
                     <Link href="/" className="font-medium hover:text-primary">Home</Link>
                   </SheetClose>
-                  {categories.map(category => (
-                    <SheetClose key={category.id} asChild>
-                       <Link href={`/category/${category.slug}`} className="font-medium hover:text-primary">
-                         {category.name}
-                       </Link>
-                    </SheetClose>
-                   ))}
-                   <SheetClose asChild>
-                    <Link href="/category/all" className="font-medium hover:text-primary">All Categories</Link>
-                   </SheetClose>
+                  <SheetClose asChild>
+                     <Link href="/category/all" className="font-medium hover:text-primary">
+                       Category
+                     </Link>
+                  </SheetClose>
+                  <SheetClose asChild>
+                    <Link href={`/products/${firstProductSlug}`} className="font-medium hover:text-primary">Product Detail</Link>
+                  </SheetClose>
                 </nav>
               </div>
             </SheetContent>
