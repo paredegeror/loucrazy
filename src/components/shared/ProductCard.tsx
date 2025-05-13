@@ -10,12 +10,13 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
+  const imageSrc = product.images && product.images.length > 0 ? product.images[0] : '/images/placeholder-product.jpg'; // Fallback image
   return (
     <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group rounded-lg flex flex-col h-full">
       <CardHeader className="p-0">
         <Link href={`/products/${product.slug}`} className="block aspect-[4/3] relative w-full overflow-hidden">
           <Image
-            src={product.images[0]}
+            src={imageSrc}
             alt={product.name}
             layout="fill"
             objectFit="cover"

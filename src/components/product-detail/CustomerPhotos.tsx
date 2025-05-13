@@ -2,11 +2,11 @@ import Image from 'next/image';
 
 // Mock data for customer photos - replace with actual data source if available
 const customerPhotosMock = [
-  { id: 'cust1', src: 'https://picsum.photos/300/400?random=51', alt: 'Customer with pet 1', dataAiHint: 'customer pet' },
-  { id: 'cust2', src: 'https://picsum.photos/300/400?random=52', alt: 'Customer with pet 2', dataAiHint: 'person dog' },
-  { id: 'cust3', src: 'https://picsum.photos/300/400?random=53', alt: 'Customer with pet 3', dataAiHint: 'owner cat' },
-  { id: 'cust4', src: 'https://picsum.photos/300/400?random=54', alt: 'Customer with pet 4', dataAiHint: 'happy pet owner' },
-  { id: 'cust5', src: 'https://picsum.photos/300/400?random=55', alt: 'Customer with pet 5', dataAiHint: 'pet love' },
+  { id: 'cust1', src: '/images/customers/customer-pet-1.jpg', alt: 'Customer with pet 1', dataAiHint: 'customer pet' },
+  { id: 'cust2', src: '/images/customers/customer-pet-2.jpg', alt: 'Customer with pet 2', dataAiHint: 'person dog' },
+  { id: 'cust3', src: '/images/customers/customer-pet-3.jpg', alt: 'Customer with pet 3', dataAiHint: 'owner cat' },
+  { id: 'cust4', src: '/images/customers/customer-pet-4.jpg', alt: 'Customer with pet 4', dataAiHint: 'happy pet owner' },
+  { id: 'cust5', src: '/images/customers/customer-pet-5.jpg', alt: 'Customer with pet 5', dataAiHint: 'pet love' },
 ];
 
 export default function CustomerPhotos() {

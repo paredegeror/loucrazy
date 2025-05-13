@@ -48,6 +48,10 @@ export default function CategoryPage({
   let baseProducts: Product[];
   let pageTitle: string;
   let breadcrumbItems = [{ label: 'Home', href: '/' }];
+  let heroImageUrl = '/images/banners/category-hero-all.jpg'; // Default for 'all'
+  let heroImageAlt = 'Assortment of happy pets';
+  let heroDataAiHint = 'happy pets collage';
+
 
   if (slug === 'all') {
     baseProducts = products;
@@ -57,6 +61,9 @@ export default function CategoryPage({
     baseProducts = products.filter((product) => product.categoryId === category.id);
     pageTitle = category.name;
     breadcrumbItems.push({ label: category.name });
+    heroImageUrl = category.image || '/images/banners/category-hero-default.jpg'; // Use category image or a default
+    heroImageAlt = `${category.name} products`;
+    heroDataAiHint = category.dataAiHint || 'pet products';
   } else {
     return (
       <div className="container py-12 max-w-screen-2xl text-center">
@@ -118,9 +125,9 @@ export default function CategoryPage({
             title="One More Friend"
             subtitle="Thousands More Fun!"
             description="Monitor your pet's health and stay connected with them, no matter where you are. Explore our range of smart pet products."
-            imageUrl="https://picsum.photos/1200/400?random=hero"
-            imageAlt="Happy pets banner"
-            dataAiHint="happy pets"
+            imageUrl={heroImageUrl}
+            imageAlt={heroImageAlt}
+            dataAiHint={heroDataAiHint}
             primaryButtonText="View Shop"
             primaryButtonLink="/category/all"
             secondaryButtonText="Explore Now"

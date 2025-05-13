@@ -29,7 +29,7 @@ export default function HeroSection() {
         </div>
         <div className="relative aspect-square max-w-xl mx-auto md:max-w-none md:aspect-[4/3] rounded-lg overflow-hidden shadow-2xl">
           <Image
-            src="https://picsum.photos/800/600"
+            src="/images/home/hero-pets.jpg" // Updated path
             alt="Happy pets"
             layout="fill"
             objectFit="cover"

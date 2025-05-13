@@ -26,11 +26,14 @@ export default function ProductImageGallery({ images, altText, dataAiHint }: Pro
     setCurrentImageIndex(index);
   };
 
+  // Ensure the main image path is valid, fallback if necessary
+  const mainImageSrc = images[currentImageIndex] || '/images/placeholder.jpg';
+
   return (
     <div className="flex flex-col gap-4">
       <div className="aspect-[4/3] w-full relative rounded-lg overflow-hidden border shadow-md"> {/* Changed aspect ratio to match image */}
         <Image
-          src={images[currentImageIndex]}
+          src={mainImageSrc}
           alt={`${altText} - Image ${currentImageIndex + 1}`}
           layout="fill"
           objectFit="cover"
@@ -40,26 +43,29 @@ export default function ProductImageGallery({ images, altText, dataAiHint }: Pro
       </div>
       {images.length > 1 && (
         <div className="grid grid-cols-4 sm:grid-cols-6 gap-2"> {/* Adjusted to 6 for more thumbnails */}
-          {images.slice(0,6).map((image, index) => ( // Show up to 6 thumbnails
-            <button
-              key={index}
-              onClick={() => handleThumbnailClick(index)}
-              className={cn(
-                "aspect-square relative rounded-md overflow-hidden border-2 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all",
-                currentImageIndex === index ? "border-primary shadow-lg" : "border-transparent hover:border-muted-foreground/50"
-              )}
-              aria-label={`View image ${index + 1}`}
-            >
-              <Image
-                src={image}
-                alt={`${altText} - Thumbnail ${index + 1}`}
-                layout="fill"
-                objectFit="cover"
-                data-ai-hint={dataAiHint || 'product thumbnail'}
-              />
-              {currentImageIndex === index && <div className="absolute inset-0 bg-primary/30"></div>}
-            </button>
-          ))}
+          {images.slice(0,6).map((image, index) => {
+            const thumbnailUrl = image || '/images/placeholder-thumbnail.jpg'; // Fallback for thumbnail
+            return (
+              <button
+                key={index}
+                onClick={() => handleThumbnailClick(index)}
+                className={cn(
+                  "aspect-square relative rounded-md overflow-hidden border-2 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all",
+                  currentImageIndex === index ? "border-primary shadow-lg" : "border-transparent hover:border-muted-foreground/50"
+                )}
+                aria-label={`View image ${index + 1}`}
+              >
+                <Image
+                  src={thumbnailUrl}
+                  alt={`${altText} - Thumbnail ${index + 1}`}
+                  layout="fill"
+                  objectFit="cover"
+                  data-ai-hint={dataAiHint || 'product thumbnail'}
+                />
+                {currentImageIndex === index && <div className="absolute inset-0 bg-primary/30"></div>}
+              </button>
+            );
+          })}
         </div>
       )}
       <div className="mt-4 space-y-3">

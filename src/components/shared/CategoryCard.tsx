@@ -10,12 +10,13 @@ interface CategoryCardProps {
 }
 
 export default function CategoryCard({ category }: CategoryCardProps) {
+  const imageSrc = category.image || '/images/placeholder-category.jpg'; // Fallback image
   return (
     <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg">
       <CardHeader className="p-0">
         <div className="aspect-[4/3] relative w-full">
           <Image
-            src={category.image}
+            src={imageSrc}
             alt={category.name}
             layout="fill"
             objectFit="cover"

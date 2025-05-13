@@ -6,7 +6,7 @@ export const categories: Category[] = [
     id: '1',
     name: 'Dog Supplies',
     slug: 'dog-supplies',
-    image: 'https://picsum.photos/400/300?v=1',
+    image: '/images/categories/dog-supplies.jpg', // Updated path
     description: 'Everything your furry friend needs, from food to toys.',
     dataAiHint: 'happy dog',
   },
@@ -14,7 +14,7 @@ export const categories: Category[] = [
     id: '2',
     name: 'Cat Supplies',
     slug: 'cat-supplies',
-    image: 'https://picsum.photos/400/300?v=2',
+    image: '/images/categories/cat-supplies.jpg', // Updated path
     description: 'Treat your feline to the best products available.',
     dataAiHint: 'playful cat',
   },
@@ -22,7 +22,7 @@ export const categories: Category[] = [
     id: '3',
     name: 'Bird Supplies',
     slug: 'bird-supplies',
-    image: 'https://picsum.photos/400/300?v=3',
+    image: '/images/categories/bird-supplies.jpg', // Updated path
     description: 'Cages, food, and accessories for your feathered companions.',
     dataAiHint: 'colorful bird',
   },
@@ -30,7 +30,7 @@ export const categories: Category[] = [
     id: '4',
     name: 'Fish Supplies',
     slug: 'fish-supplies',
-    image: 'https://picsum.photos/400/300?v=4',
+    image: '/images/categories/fish-supplies.jpg', // Updated path
     description: 'Aquariums, filters, and food for your aquatic pets.',
     dataAiHint: 'goldfish aquarium',
   },
@@ -51,7 +51,14 @@ export const products: Product[] = [
     name: 'Premium Dog Food - Chicken',
     slug: 'premium-dog-food-chicken',
     categoryId: '1',
-    images: ['https://picsum.photos/800/600?random=1', 'https://picsum.photos/600/400?random=2', 'https://picsum.photos/600/400?random=3', 'https://picsum.photos/600/400?random=31', 'https://picsum.photos/600/400?random=32', 'https://picsum.photos/600/400?random=33'],
+    images: [
+        '/images/products/dog-food-chicken-1.jpg', 
+        '/images/products/dog-food-chicken-2.jpg', 
+        '/images/products/dog-food-chicken-3.jpg',
+        '/images/products/dog-food-chicken-4.jpg',
+        '/images/products/dog-food-chicken-5.jpg',
+        '/images/products/dog-food-chicken-6.jpg'
+    ], // Updated paths
     description: 'Nutritious and delicious premium chicken flavored dog food. Made with real chicken and wholesome grains. Suitable for all breeds.',
     price: 25.99,
     sku: 'DOG-FOOD-001',
@@ -77,7 +84,7 @@ export const products: Product[] = [
     name: 'Durable Chew Toy for Dogs',
     slug: 'durable-chew-toy-dogs',
     categoryId: '1',
-    images: ['https://picsum.photos/800/600?random=4', 'https://picsum.photos/600/400?random=5'],
+    images: ['/images/products/chew-toy-1.jpg', '/images/products/chew-toy-2.jpg'], // Updated paths
     description: 'A long-lasting chew toy designed for aggressive chewers. Helps clean teeth and gums.',
     price: 12.50,
     sku: 'DOG-TOY-001',
@@ -103,7 +110,7 @@ export const products: Product[] = [
     name: 'Cozy Dog Bed - Large',
     slug: 'cozy-dog-bed-large',
     categoryId: '1',
-    images: ['https://picsum.photos/800/600?random=6'],
+    images: ['/images/products/dog-bed-large.jpg'], // Updated path
     description: 'Soft and comfortable large dog bed. Provides excellent support and promotes restful sleep.',
     price: 45.00,
     sku: 'DOG-BED-001',
@@ -131,7 +138,7 @@ export const products: Product[] = [
     name: 'Gourmet Cat Food - Salmon',
     slug: 'gourmet-cat-food-salmon',
     categoryId: '2',
-    images: ['https://picsum.photos/800/600?random=7', 'https://picsum.photos/600/400?random=8'],
+    images: ['/images/products/cat-food-salmon-1.jpg', '/images/products/cat-food-salmon-2.jpg'], // Updated paths
     description: 'Delicious salmon flavored gourmet cat food. Rich in Omega-3 and essential nutrients for a healthy coat.',
     price: 18.75,
     sku: 'CAT-FOOD-001',
@@ -143,9 +150,9 @@ export const products: Product[] = [
     brand: 'OmegaTreats',
     tags: ['Kitten', 'Senior'],
     age: "All Life Stages",
-    size: "Small", // Typically refers to packaging size for food
-    vaccinated: true, // Assuming it means the food is safe / high quality standard
-    dewormed: true, // Metaphorically, free of contaminants
+    size: "Small", 
+    vaccinated: true, 
+    dewormed: true, 
     cert: "Grain-Free",
     microchip: "No",
     location: "Cat Food Aisle",
@@ -157,7 +164,7 @@ export const products: Product[] = [
     name: 'Interactive Feather Wand Toy',
     slug: 'interactive-feather-wand-toy',
     categoryId: '2',
-    images: ['https://picsum.photos/800/600?random=9'],
+    images: ['/images/products/feather-wand-toy.jpg'], // Updated path
     description: 'Engage your cat with this fun and interactive feather wand. Stimulates natural hunting instincts.',
     price: 8.99,
     sku: 'CAT-TOY-001',
@@ -169,7 +176,7 @@ export const products: Product[] = [
     brand: 'HappyPaws',
     tags: ['Kitten'],
     age: "All Ages",
-    size: "Medium", // Toy size
+    size: "Medium", 
     cert: "Natural Feathers",
     publishedDate: "2023-05-12",
     additionalInfo: "Lightweight and easy to handle. Encourages exercise and play."
@@ -179,7 +186,7 @@ export const products: Product[] = [
     name: 'Cat Scratching Post with Platform',
     slug: 'cat-scratching-post-platform',
     categoryId: '2',
-    images: ['https://picsum.photos/800/600?random=10', 'https://picsum.photos/600/400?random=11'],
+    images: ['/images/products/cat-scratch-post-1.jpg', '/images/products/cat-scratch-post-2.jpg'], // Updated paths
     description: 'Sturdy scratching post with a comfortable viewing platform. Helps protect your furniture.',
     price: 32.00,
     sku: 'CAT-SCRATCH-001',
@@ -190,7 +197,7 @@ export const products: Product[] = [
     colors: ['Brown', 'Warm Grey'],
     brand: 'PetSafe',
     age: "All Ages",
-    size: "Large", // Structure size
+    size: "Large", 
     cert: "Durable Sisal",
     publishedDate: "2023-06-05",
     additionalInfo: "Easy to assemble. Provides a dedicated place for scratching."
@@ -202,7 +209,7 @@ export const products: Product[] = [
     name: 'Premium Bird Seed Mix',
     slug: 'premium-bird-seed-mix',
     categoryId: '3',
-    images: ['https://picsum.photos/800/600?random=12'],
+    images: ['/images/products/bird-seed-mix.jpg'], // Updated path
     description: 'A balanced mix of seeds, nuts, and fruits for various bird species. High in energy and nutrients.',
     price: 15.20,
     sku: 'BIRD-SEED-001',
@@ -213,7 +220,7 @@ export const products: Product[] = [
     colors: ['Yellow', 'Brown'],
     brand: 'PawsomeChoice',
     age: "Adult Birds",
-    size: "Medium", // Bag size
+    size: "Medium", 
     cert: "All Natural Ingredients",
     publishedDate: "2023-07-18",
     additionalInfo: "Attracts a wide variety of wild birds. No artificial colors or flavors."
@@ -223,7 +230,7 @@ export const products: Product[] = [
     name: 'Spacious Bird Cage',
     slug: 'spacious-bird-cage',
     categoryId: '3',
-    images: ['https://picsum.photos/800/600?random=13', 'https://picsum.photos/600/400?random=14'],
+    images: ['/images/products/bird-cage-1.jpg', '/images/products/bird-cage-2.jpg'], // Updated paths
     description: 'A large and secure cage for medium-sized birds, with multiple perches and feeding bowls.',
     price: 75.50,
     sku: 'BIRD-CAGE-001',
@@ -234,7 +241,7 @@ export const products: Product[] = [
     colors: ['Silver', 'Black'],
     brand: 'PetSafe',
     age: "All Ages",
-    size: "Large", // Cage dimensions
+    size: "Large", 
     cert: "Rust-proof Coating",
     publishedDate: "2023-08-02",
     additionalInfo: "Includes removable tray for easy cleaning. Secure door latch."
@@ -246,7 +253,7 @@ export const products: Product[] = [
     name: 'Aquarium Starter Kit - 10 Gallon',
     slug: 'aquarium-starter-kit-10g',
     categoryId: '4',
-    images: ['https://picsum.photos/800/600?random=15'],
+    images: ['/images/products/aquarium-kit.jpg'], // Updated path
     description: 'Complete 10-gallon aquarium kit including filter, heater, and LED lighting. Perfect for beginners.',
     price: 99.99,
     sku: 'FISH-AQUA-001',
@@ -257,7 +264,7 @@ export const products: Product[] = [
     colors: ['Black', 'White'],
     brand: 'PawsomeChoice',
     age: "N/A",
-    size: "Medium", // Tank size
+    size: "Medium", 
     cert: "Leak-Proof Guarantee",
     publishedDate: "2023-09-10",
     additionalInfo: "Energy-efficient LED lighting. Quiet and effective filter."
@@ -267,7 +274,7 @@ export const products: Product[] = [
     name: 'Tropical Fish Flakes',
     slug: 'tropical-fish-flakes',
     categoryId: '4',
-    images: ['https://picsum.photos/800/600?random=16'],
+    images: ['/images/products/fish-flakes.jpg'], // Updated path
     description: 'High-quality fish flakes for tropical fish. Enhances color and vitality.',
     price: 7.50,
     sku: 'FISH-FOOD-001',
@@ -275,10 +282,10 @@ export const products: Product[] = [
     rating: 4.3,
     dataAiHint: 'fish food flakes',
     gender: 'Unisex',
-    colors: ['Red', 'Yellow'], // Colors of the flakes/packaging
+    colors: ['Red', 'Yellow'], 
     brand: 'OmegaTreats',
     age: "All Ages",
-    size: "Small", // Container size
+    size: "Small", 
     cert: "Color Enhancing Formula",
     publishedDate: "2023-10-01",
     additionalInfo: "Does not cloud water. Easily digestible for most tropical fish."
@@ -287,8 +294,8 @@ export const products: Product[] = [
     id: 'prod11',
     name: 'Adjustable Pet Leash - Red',
     slug: 'adjustable-pet-leash-red',
-    categoryId: '1', // Dog
-    images: ['https://picsum.photos/800/600?random=17', 'https://picsum.photos/600/400?random=18'],
+    categoryId: '1', 
+    images: ['/images/products/pet-leash-red-1.jpg', '/images/products/pet-leash-red-2.jpg'], // Updated paths
     description: 'Durable and adjustable leash for dogs of all sizes. Features a comfortable grip and reflective stitching for night walks.',
     price: 19.99,
     sku: 'DOG-LEASH-001',
@@ -300,7 +307,7 @@ export const products: Product[] = [
     brand: 'RoyalPet',
     tags: ['Small Dog', 'Large Dog'],
     age: "All Ages",
-    size: "Medium", // Leash length/thickness
+    size: "Medium", 
     cert: "Reflective Safety",
     publishedDate: "2023-11-05",
     additionalInfo: "Strong nylon material with heavy-duty clasp."
@@ -309,8 +316,8 @@ export const products: Product[] = [
     id: 'prod12',
     name: 'Soft Cat Collar with Bell - Blue',
     slug: 'soft-cat-collar-bell-blue',
-    categoryId: '2', // Cat
-    images: ['https://picsum.photos/800/600?random=19'],
+    categoryId: '2', 
+    images: ['/images/products/cat-collar-blue.jpg'], // Updated path
     description: 'Comfortable and stylish cat collar with a safety release buckle and a small bell.',
     price: 9.50,
     sku: 'CAT-COLLAR-001',
@@ -322,7 +329,7 @@ export const products: Product[] = [
     brand: 'HappyPaws',
     tags: ['Kitten'],
     age: "All Ages",
-    size: "Small", // Collar size
+    size: "Small", 
     cert: "Safety Release",
     publishedDate: "2023-12-01",
     additionalInfo: "Adjustable to fit most cats. Lightweight and comfortable."
@@ -332,7 +339,7 @@ export const products: Product[] = [
     name: 'Orthopedic Dog Mattress',
     slug: 'orthopedic-dog-mattress',
     categoryId: '1',
-    images: ['https://picsum.photos/800/600?random=20'],
+    images: ['/images/products/dog-mattress-ortho.jpg'], // Updated path
     description: 'Supportive orthopedic mattress for older dogs or those with joint issues.',
     price: 65.00,
     stock: 40,
@@ -353,7 +360,7 @@ export const products: Product[] = [
     name: 'Cat Tree Condo Tower',
     slug: 'cat-tree-condo-tower',
     categoryId: '2',
-    images: ['https://picsum.photos/800/600?random=21'],
+    images: ['/images/products/cat-tree-tower.jpg'], // Updated path
     description: 'Multi-level cat tree with condos, scratching posts, and perches.',
     price: 89.90,
     stock: 20,
@@ -373,7 +380,7 @@ export const products: Product[] = [
     name: 'Wild Bird Feeder Station',
     slug: 'wild-bird-feeder-station',
     categoryId: '3',
-    images: ['https://picsum.photos/800/600?random=22'],
+    images: ['/images/products/bird-feeder-station.jpg'], // Updated path
     description: 'Decorative and functional feeder station to attract wild birds to your garden.',
     price: 35.00,
     stock: 60,
@@ -392,8 +399,8 @@ export const products: Product[] = [
     id: 'prod16',
     name: 'Small Animal Hay Feeder',
     slug: 'small-animal-hay-feeder',
-    categoryId: '1', // Could be other small animals, placing in dog for now
-    images: ['https://picsum.photos/800/600?random=23'],
+    categoryId: '1', 
+    images: ['/images/products/hay-feeder.jpg'], // Updated path
     description: 'Convenient hay feeder for rabbits, guinea pigs, and other small animals.',
     price: 14.50,
     stock: 80,
@@ -402,7 +409,7 @@ export const products: Product[] = [
     gender: 'Unisex',
     colors: ['Silver'],
     brand: 'PawsomeChoice',
-    tags: ['Small Dog'], // Using tag for relevance, though it's for small animals
+    tags: ['Small Dog'], 
     age: "All Ages",
     size: "Small",
     cert: "Chew-Proof Metal",
@@ -414,7 +421,7 @@ export const products: Product[] = [
     name: 'Hypoallergenic Cat Shampoo',
     slug: 'hypoallergenic-cat-shampoo',
     categoryId: '2',
-    images: ['https://picsum.photos/800/600?random=24'],
+    images: ['/images/products/cat-shampoo-hypo.jpg'], // Updated path
     description: 'Gentle, hypoallergenic shampoo for cats with sensitive skin.',
     price: 16.99,
     stock: 90,
@@ -425,7 +432,7 @@ export const products: Product[] = [
     brand: 'OmegaTreats',
     tags: ['Kitten', 'Senior'],
     age: "All Ages",
-    size: "Small", // Bottle size
+    size: "Small", 
     cert: "Tear-Free Formula",
     publishedDate: "2024-05-01",
     additionalInfo: "Soothes dry, itchy skin. pH balanced for cats."
