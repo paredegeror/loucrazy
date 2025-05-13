@@ -9,8 +9,9 @@ import { Button } from '@/components/ui/button';
 import Breadcrumbs from '@/components/shared/Breadcrumbs';
 import FilterSidebar from '@/components/category/FilterSidebar';
 import SortDropdown from '@/components/category/SortDropdown';
+import CategoryHeroBanner from '@/components/category/CategoryHeroBanner';
 
-const ITEMS_PER_PAGE = 9; // Adjusted for 3-column layout
+const ITEMS_PER_PAGE = 9; // 3 columns * 3 rows
 
 export async function generateStaticParams() {
   const categorySlugs = categories.map((category) => ({ slug: category.slug }));
@@ -55,7 +56,7 @@ export default function CategoryPage({
   } else if (category) {
     baseProducts = products.filter((product) => product.categoryId === category.id);
     pageTitle = category.name;
-    breadcrumbItems.push({ label: category.name }); // Simplified, ideally link to category page itself if it's not the current page
+    breadcrumbItems.push({ label: category.name });
   } else {
     return (
       <div className="container py-12 max-w-screen-2xl text-center">
@@ -84,8 +85,6 @@ export default function CategoryPage({
   });
 
   // Apply sorting
-  // TODO: Implement 'newest' and 'popularity' sorting if actual data fields (e.g., createdAt, salesCount) existed.
-  // For now, popularity could be rating, newest could be reverse ID or a new field.
   if (currentSort === 'price-asc') {
     filteredProducts.sort((a, b) => a.price - b.price);
   } else if (currentSort === 'price-desc') {
@@ -93,10 +92,8 @@ export default function CategoryPage({
   } else if (currentSort === 'rating-desc') {
     filteredProducts.sort((a,b) => (b.rating || 0) - (a.rating || 0));
   } else if (currentSort === 'newest') {
-     // Assuming higher ID is newer for mock data
     filteredProducts.sort((a,b) => parseInt(b.id.replace('prod','')) - parseInt(a.id.replace('prod','')));
   }
-  // Default sort (popularity) can be based on rating for now
    else if (currentSort === 'popularity') {
     filteredProducts.sort((a,b) => (b.rating || 0) - (a.rating || 0));
   }
@@ -116,8 +113,21 @@ export default function CategoryPage({
       <div className="md:grid md:grid-cols-[280px_1fr] md:gap-8">
         <FilterSidebar />
         
-        <div>
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6">
+        <div className="flex flex-col">
+          <CategoryHeroBanner 
+            title="One More Friend"
+            subtitle="Thousands More Fun!"
+            description="Monitor your pet's health and stay connected with them, no matter where you are. Explore our range of smart pet products."
+            imageUrl="https://picsum.photos/1200/400?random=hero"
+            imageAlt="Happy pets banner"
+            dataAiHint="happy pets"
+            primaryButtonText="View Shop"
+            primaryButtonLink="/category/all"
+            secondaryButtonText="Explore Now"
+            secondaryButtonLink="#products"
+          />
+
+          <div id="products" className="flex flex-col sm:flex-row justify-between items-start sm:items-center my-6 pt-6"> {/* Added pt-6 for spacing after banner */}
             <div className="mb-4 sm:mb-0">
               <h1 className="text-3xl md:text-4xl font-bold text-foreground">{pageTitle}</h1>
               {category?.description && slug !== 'all' && (
@@ -145,12 +155,12 @@ export default function CategoryPage({
               )}
             </>
           ) : (
-            <Alert className="max-w-md mx-auto text-center">
+            <Alert className="max-w-md mx-auto text-center mt-8">
               <ListTree className="h-4 w-4 mx-auto mb-2" />
               <AlertTitle>No Products Found</AlertTitle>
               <AlertDescription>
                 No products match your current filters. Try adjusting them or check back soon!
-                <Link href={`/category/${slug}`} className="block mt-4"> {/* Reset filters for current category */}
+                <Link href={`/category/${slug}`} className="block mt-4">
                   <Button variant="outline">Clear Filters for this Category</Button>
                 </Link>
               </AlertDescription>
