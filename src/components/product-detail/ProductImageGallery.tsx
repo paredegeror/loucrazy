@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
+import { ShieldCheck, BadgeCheck } from 'lucide-react'; // Added BadgeCheck
 
 interface ProductImageGalleryProps {
   images: string[];
@@ -27,7 +28,7 @@ export default function ProductImageGallery({ images, altText, dataAiHint }: Pro
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="aspect-square w-full relative rounded-lg overflow-hidden border shadow-md">
+      <div className="aspect-[4/3] w-full relative rounded-lg overflow-hidden border shadow-md"> {/* Changed aspect ratio to match image */}
         <Image
           src={images[currentImageIndex]}
           alt={`${altText} - Image ${currentImageIndex + 1}`}
@@ -38,8 +39,8 @@ export default function ProductImageGallery({ images, altText, dataAiHint }: Pro
         />
       </div>
       {images.length > 1 && (
-        <div className="grid grid-cols-4 sm:grid-cols-5 gap-2">
-          {images.map((image, index) => (
+        <div className="grid grid-cols-4 sm:grid-cols-6 gap-2"> {/* Adjusted to 6 for more thumbnails */}
+          {images.slice(0,6).map((image, index) => ( // Show up to 6 thumbnails
             <button
               key={index}
               onClick={() => handleThumbnailClick(index)}
@@ -61,6 +62,16 @@ export default function ProductImageGallery({ images, altText, dataAiHint }: Pro
           ))}
         </div>
       )}
+      <div className="mt-4 space-y-3">
+        <div className="flex items-center gap-2 p-3 bg-green-50 border border-green-200 rounded-md text-sm">
+          <ShieldCheck className="h-6 w-6 text-green-600" />
+          <span className="text-green-700 font-medium">100% Health guarantee for pets</span>
+        </div>
+        <div className="flex items-center gap-2 p-3 bg-blue-50 border border-blue-200 rounded-md text-sm">
+          <BadgeCheck className="h-6 w-6 text-blue-600" />
+          <span className="text-blue-700 font-medium">100% Guarantee of pet identification</span>
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, type ReactElement } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -32,9 +32,10 @@ type FormData = z.infer<typeof formSchema>;
 
 interface ContactFormModalProps {
   productName?: string;
+  triggerButton?: ReactElement; // Allow custom trigger button
 }
 
-export default function ContactFormModal({ productName }: ContactFormModalProps) {
+export default function ContactFormModal({ productName, triggerButton }: ContactFormModalProps) {
   const [open, setOpen] = useState(false);
   const { toast } = useToast();
   const form = useForm<FormData>({
@@ -65,9 +66,13 @@ export default function ContactFormModal({ productName }: ContactFormModalProps)
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button size="lg" className="w-full md:w-auto bg-primary hover:bg-primary/90 text-primary-foreground text-base py-3 px-6">
-          <Send className="mr-2 h-5 w-5" /> Contact Us
-        </Button>
+        {triggerButton ? (
+          triggerButton
+        ) : (
+          <Button size="lg" className="w-full md:w-auto bg-primary hover:bg-primary/90 text-primary-foreground text-base py-3 px-6">
+            <Send className="mr-2 h-5 w-5" /> Contact Us
+          </Button>
+        )}
       </DialogTrigger>
       <DialogContent className="sm:max-w-[480px] bg-card shadow-xl rounded-lg">
         <DialogHeader>
