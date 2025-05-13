@@ -1,3 +1,4 @@
+
 import type { Category, Product } from './types';
 
 export const categories: Category[] = [
@@ -256,7 +257,7 @@ export const products: Product[] = [
     name: 'Orthopedic Dog Mattress',
     slug: 'orthopedic-dog-mattress',
     categoryId: '1',
-    images: ['httpsum.photos/600/400?random=20'],
+    images: ['https://picsum.photos/600/400?random=20'],
     description: 'Supportive orthopedic mattress for older dogs or those with joint issues.',
     price: 65.00,
     stock: 40,
@@ -318,7 +319,7 @@ export const products: Product[] = [
     name: 'Hypoallergenic Cat Shampoo',
     slug: 'hypoallergenic-cat-shampoo',
     categoryId: '2',
-    images: ['httpsum.photos/600/400?random=24'],
+    images: ['https://picsum.photos/600/400?random=24'],
     description: 'Gentle, hypoallergenic shampoo for cats with sensitive skin.',
     price: 16.99,
     stock: 90,
@@ -330,3 +331,4 @@ export const products: Product[] = [
     tags: ['Kitten', 'Senior'],
   },
 ];
+
