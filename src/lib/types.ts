@@ -19,4 +19,8 @@ export interface Product {
   stock?: number;
   rating?: number; // e.g., 1-5
   dataAiHint?: string;
+  gender?: 'Male' | 'Female' | 'Unisex'; // Added for filtering
+  colors?: string[]; // Added for filtering e.g. ['Red', 'Blue']
+  brand?: string; // Added for filtering
+  tags?: string[]; // e.g. ['Small Dog', 'Puppy']
 }
